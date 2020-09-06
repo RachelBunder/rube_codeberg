@@ -2,7 +2,8 @@
 from bs4 import BeautifulSoup
 import requests
 
-def get_phrase(url)
+def get_phrase(url):
+    #
     data = requests.get(url).text
     soup = BeautifulSoup(data, 'html.parser').prettify().split(' ')
 
@@ -20,8 +21,7 @@ def get_phrase(url)
         if comp_flag and print_flag:
             if '"' in word:
                 # Find the end of the word
-                for m, more_word in enumerate(soup[w+1:]):
-                    print(more_word)
+                for m, more_word in enumerate(soup[w + 1:]):
                     if '"' in more_word:
                         start_word_index = w
                         end_word_index = w + m + 2
@@ -35,6 +35,6 @@ def get_phrase(url)
 
 
 to_print = get_phrase('https://2020.pycon.org.au/program/sun/')
-print(to_print)
+print(' '.join(to_print))
 
-
+# Check that the grammar is valid
